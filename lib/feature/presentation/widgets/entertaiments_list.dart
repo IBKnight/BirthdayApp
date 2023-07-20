@@ -18,7 +18,7 @@ class EntertaimentsList extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 0.h),
               child: ListView.builder(
-                itemExtent: 58.h,
+                itemExtent: 58.w,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: (Provider.of<ExpandedProvider>(context, listen: true)
@@ -31,11 +31,13 @@ class EntertaimentsList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       CircleAvatar(
+                        minRadius: 21.r,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(41),
+                          borderRadius: BorderRadius.circular(41.r),
                           child: Image.asset(
                             item.image,
-                            width: 42.r,
+                            width: 42.w,
+                            height: 42.w,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -58,7 +60,7 @@ class EntertaimentsList extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
-                                  color: Color.fromRGBO(78, 67, 67, 1)),
+                                  color: Color.fromRGBO(78, 67, 67, 1),),
                             ),
                           ],
                         ),
@@ -67,25 +69,6 @@ class EntertaimentsList extends StatelessWidget {
                           size: 20.w, color: Color.fromRGBO(78, 67, 67, 1)),
                     ],
                   );
-                  //   ListTile(
-                  //     title: Text(
-                  //     item.title,
-                  //     style: TextStyle(
-                  //         fontSize: 14.sp, fontWeight: FontWeight.w500),
-                  //   ),
-                  //   leading: ClipRRect(
-                  //     borderRadius: BorderRadius.circular(41),
-                  //     child: Image.asset(
-                  //       item.image,
-                  //       width: 50.r,
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ),
-                  //   subtitle: Text(
-                  //     item.subtitle,
-                  //     style: TextStyle(fontSize: 14.sp),
-                  //   ),
-                  // );
                 },
               ),
             ),
@@ -97,9 +80,10 @@ class EntertaimentsList extends StatelessWidget {
                   text: Provider.of<ExpandedProvider>(context, listen: true)
                       .foldText,
                   style: GoogleFonts.jost(
-                      decoration: TextDecoration.underline,
-                      color: Colors.black,
-                      fontSize: 14.sp),
+                    decoration: TextDecoration.underline,
+                    color: Colors.black,
+                    fontSize: 14.sp,
+                  ),
                 ),
               ),
             ),

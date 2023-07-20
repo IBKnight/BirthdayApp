@@ -1,3 +1,4 @@
+import 'package:birthday_app/feature/presentation/widgets/appbanner.dart';
 import 'package:birthday_app/feature/presentation/widgets/entertaiments_list.dart';
 import 'package:birthday_app/feature/presentation/widgets/menu_grid.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,6 @@ void main() {
 class BirthdayApp extends StatelessWidget {
   const BirthdayApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -23,9 +23,7 @@ class BirthdayApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          textTheme: GoogleFonts.jostTextTheme(
-
-          ),
+          textTheme: GoogleFonts.jostTextTheme(),
         ),
         debugShowCheckedModeBanner: false,
         home: HomePage(),
@@ -37,8 +35,7 @@ class BirthdayApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final String text =
-      'Приглашаю своих дорогих друзей отметить мой день '
+  final String text = 'Приглашаю своих дорогих друзей отметить мой день '
       'рождения в замечательном месте с множеством развлечений,'
       ' вкусных блюд и хорошим настроением!';
 
@@ -52,10 +49,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                height: 250.h,
-                color: Colors.purple,
-              ),
+              AppBanner(),
               SizedBox(
                 height: 16.h,
               ),
@@ -78,10 +72,8 @@ class HomePage extends StatelessWidget {
                       onPressed: () {},
                       style: TextButton.styleFrom(
                         minimumSize: Size(156.w, 50.h),
-                        backgroundColor:
-                        Color.fromRGBO(253, 172, 7, 1),
-                        shape:
-                        RoundedRectangleBorder(
+                        backgroundColor: Color.fromRGBO(253, 172, 7, 1),
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.r),
                         ),
                       ),
@@ -97,22 +89,20 @@ class HomePage extends StatelessWidget {
                       width: 31.w,
                     ),
                     TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(156.w, 50.h),
-                          backgroundColor:
-                              Color.fromRGBO(253, 172, 7, 1),
-                          shape:
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.r),
-                            ),
-                          ),
-                        child: Text(
-                          "Вишлист",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        minimumSize: Size(156.w, 50.h),
+                        backgroundColor: Color.fromRGBO(253, 172, 7, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.r),
+                        ),
+                      ),
+                      child: Text(
+                        "Вишлист",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
                       ),
                     ),
                   ],
@@ -157,13 +147,13 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(width: 1.r, )
+                    border: Border.all(
+                      width: 1.r,
+                    ),
                   ),
                   height: 246.h,
                   width: 343.w,
-                  child: YandexMap(
-                  ),
-
+                  child: YandexMap(),
                 ),
               ),
               SizedBox(
@@ -176,21 +166,26 @@ class HomePage extends StatelessWidget {
                   color: Color.fromRGBO(78, 67, 67, 1),
                 ),
               ),
-              SizedBox(height: 10.h,),
+              SizedBox(
+                height: 10.h,
+              ),
               GestureDetector(
-                onTap: () => launchUrl(Uri.parse("https://github.com/IBKnight"),),
+                onTap: () => launchUrl(
+                  Uri.parse("https://github.com/IBKnight"),
+                ),
                 child: RichText(
                   text: TextSpan(
                     text: "Перейти на сайт места",
                     style: GoogleFonts.jost(
                         decoration: TextDecoration.underline,
                         color: Colors.black,
-                        fontSize: 14.sp
-                    ),
+                        fontSize: 14.sp),
                   ),
                 ),
               ),
-              SizedBox(height: 20.h,)
+              SizedBox(
+                height: 20.h,
+              )
             ],
           ),
         ),
