@@ -1,6 +1,7 @@
-import 'package:birthday_app/feature/presentation/providers/ExpandedProvider.dart';
+import 'package:birthday_app/feature/presentation/providers/expanded_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:birthday_app/feature/domain/entities/card_entity.dart';
 
@@ -20,14 +21,14 @@ class MenuGrid extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 14,
-                  crossAxisSpacing: 15,
-                  childAspectRatio: 0.9,
+                  crossAxisSpacing: 32.w,
+                  childAspectRatio: 0.8,
                   crossAxisCount: 2,
                 ),
                 //mainAxisSpacing: 20.h,
                 shrinkWrap: true,
-                itemCount: (Provider.of<ExpandedProvider>(context, listen: true).isExpanded)
+                itemCount: (Provider.of<ExpandedProvider>(context, listen: true)
+                        .isExpanded)
                     ? 2
                     : cardList.length,
                 itemBuilder: (context, int index) {
@@ -63,16 +64,22 @@ class MenuGrid extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 12.h,),
+            // SizedBox(
+            //   height: 12.h,
+            // ),
             GestureDetector(
               onTap: () => Provider.of<ExpandedProvider>(context, listen: false)
                   .folding(),
-              child: Text(
-                Provider.of<ExpandedProvider>(context, listen: true).foldText,
-                style: TextStyle(
-                    fontSize: 14.sp,
-                    decoration: TextDecoration.underline,
-                    color: Colors.black),
+              child: RichText(
+                text: TextSpan(
+                  text: Provider.of<ExpandedProvider>(context, listen: true)
+                      .foldText,
+                  style: GoogleFonts.jost(
+                      decoration: TextDecoration.underline,
+                      color: Colors.black,
+                      fontSize: 14.sp
+                  ),
+                ),
               ),
             ),
           ],

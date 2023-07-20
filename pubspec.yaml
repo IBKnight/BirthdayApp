@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^2.0.7
   flutter_bloc: ^8.1.3
   provider: ^6.0.5
+  url_launcher: ^6.1.12
+  yandex_mapkit: ^3.3.3
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +73,7 @@ flutter:
     - assets/entertainments_icons/games.png
     - assets/entertainments_icons/pool.png
     - assets/entertainments_icons/computer.png
+    - assets/map.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
