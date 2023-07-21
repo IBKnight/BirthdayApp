@@ -34,12 +34,15 @@ class AppBanner extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 23.w, top: 22.5.h),
-                        child: Text(
-                          appbannerList[index].title,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w700),
+                        child: SizedBox(
+                          width: 119.w,
+                          child: Text(
+                            appbannerList[index].title,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w700),
+                          ),
                         ),
                       )
                     ],
@@ -72,7 +75,7 @@ class AppBanner extends StatelessWidget {
 
 class Indicator extends StatelessWidget {
   const Indicator({Key? key, required this.isActive}) : super(key: key);
-  final isActive;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {

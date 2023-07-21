@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                     TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
-                        minimumSize: Size(156.w, 50.h),
+                        minimumSize: Size(156.w, 50.w),
                         backgroundColor: Color.fromRGBO(253, 172, 7, 1),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.r),
@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
                     TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
-                        minimumSize: Size(156.w, 50.h),
+                        minimumSize: Size(156.w, 50.w),
                         backgroundColor: Color.fromRGBO(253, 172, 7, 1),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.r),
@@ -151,9 +151,44 @@ class HomePage extends StatelessWidget {
                       width: 1.r,
                     ),
                   ),
-                  height: 246.h,
+                  height: 246.w,
                   width: 343.w,
-                  child: YandexMap(),
+                  child: YandexMap(
+                    mapObjects: [
+                      PlacemarkMapObject(
+                        mapId: const MapObjectId("Контер страйк"),
+                        point: const Point(
+                          latitude: 47.242613,
+                          longitude: 38.691239,
+                        ),
+                        text: const PlacemarkText(
+                            text: "Контра сити", style: PlacemarkTextStyle()),
+                        icon: PlacemarkIcon.single(
+                          PlacemarkIconStyle(
+                            zIndex: 1,
+                            image: BitmapDescriptor.fromAssetImage(
+                                "assets/route_end.png",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                    onMapCreated: (YandexMapController controller) {
+                      controller.moveCamera(
+                        animation: const MapAnimation(
+                            type: MapAnimationType.linear, duration: 1),
+                        CameraUpdate.newCameraPosition(
+                          CameraPosition(
+                            target: Point(
+                              latitude: 47.242613,
+                              longitude: 38.691239,
+                            ),
+                            zoom: 11,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
               SizedBox(

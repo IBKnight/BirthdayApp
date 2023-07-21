@@ -5,8 +5,6 @@ class ExpandedProvider with ChangeNotifier{
   bool _isExpanded = false;
   String _foldText = "Свернуть ▲";
 
-
-
   String get foldText => _foldText;
   bool get isExpanded => _isExpanded;
 
@@ -15,7 +13,5 @@ class ExpandedProvider with ChangeNotifier{
     _foldText = (_isExpanded) ? "Развернуть ▼" : "Свернуть ▲";
     notifyListeners();
   }
-
-
 
 }

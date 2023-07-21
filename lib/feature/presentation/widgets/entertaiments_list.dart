@@ -8,13 +8,15 @@ import 'package:birthday_app/feature/domain/entities/entertainments_entity.dart'
 class EntertaimentsList extends StatelessWidget {
   const EntertaimentsList({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    final expandedProvider = ExpandedProvider()..folding();
     return ListenableProvider(
-      create: (_) => ExpandedProvider(),
+      create: (_) => expandedProvider,
       builder: (context, child) {
         return Column(
-          children: [
+        children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 0.h),
               child: ListView.builder(
@@ -31,6 +33,7 @@ class EntertaimentsList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       CircleAvatar(
+                        backgroundColor: Color(int.parse(item.color.replaceAll("#", "0xff"))),
                         minRadius: 21.r,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(41.r),
