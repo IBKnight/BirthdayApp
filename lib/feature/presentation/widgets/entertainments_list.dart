@@ -1,51 +1,40 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
 
-
-import 'package:birthday_app/feature/domain/entities/card_entity.dart';
-import 'package:birthday_app/common/palette.dart';
+import 'package:birthday_app/feature/domain/entities/entertainments_entity.dart';
 import 'package:birthday_app/feature/presentation/providers/expanded_provider.dart';
-import 'package:birthday_app/feature/presentation/widgets/menu_item.dart';
+import 'package:birthday_app/feature/presentation/widgets/entertainments_item.dart';
 
 
-
-class MenuGrid extends StatelessWidget {
-  MenuGrid({Key? key}) : super(key: key);
+class EntertainmentsList extends StatelessWidget {
+  const EntertainmentsList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final expandedProvider = ExpandedProvider()..folding();
     return ListenableProvider(
-      create: (_) => ExpandedProvider(),
+      create: (_) => expandedProvider,
       builder: (context, child) {
         return Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 0.h),
-              child: GridView.builder(
-                scrollDirection: Axis.vertical,
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 0.h),
+              child: ListView.builder(
+                itemExtent: 58.w,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 32.w,
-                  childAspectRatio: 0.8,
-                  crossAxisCount: 2,
-                ),
-                //mainAxisSpacing: 20.h,
                 shrinkWrap: true,
                 itemCount: (Provider.of<ExpandedProvider>(context, listen: true)
                         .isExpanded)
                     ? 2
-                    : cardList.length,
+                    : entertainmentsList.length,
                 itemBuilder: (context, int index) {
-                  final item = cardList[index];
-                  return MenuItem(item: item, index: index);
+                  final item = entertainmentsList[index];
+                  return EntertainmentsItem(item: item);
                 },
               ),
             ),
-            // SizedBox(
-            //   height: 12.h,
-            // ),
             GestureDetector(
               onTap: () => Provider.of<ExpandedProvider>(context, listen: false)
                   .folding(),
@@ -54,9 +43,9 @@ class MenuGrid extends StatelessWidget {
                   text: Provider.of<ExpandedProvider>(context, listen: true)
                       .foldText,
                   style: GoogleFonts.jost(
-                      decoration: TextDecoration.underline,
-                      color: Palette.greenishBlack,
-                      fontSize: 14.sp
+                    decoration: TextDecoration.underline,
+                    color: Colors.black,
+                    fontSize: 14.sp,
                   ),
                 ),
               ),

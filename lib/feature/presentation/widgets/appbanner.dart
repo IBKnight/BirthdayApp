@@ -1,8 +1,10 @@
-import 'package:birthday_app/feature/domain/entities/appbanner_entity.dart';
-import 'package:birthday_app/feature/presentation/providers/app_banner_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+
+import 'package:birthday_app/feature/domain/entities/appbanner_entity.dart';
+import 'package:birthday_app/feature/presentation/providers/app_banner_provider.dart';
+
 
 class AppBanner extends StatelessWidget {
   const AppBanner({Key? key}) : super(key: key);
