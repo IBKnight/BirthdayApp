@@ -1,5 +1,6 @@
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/feature/domain/entities/card_entity.dart';
+import 'package:birthday_app/feature/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,15 +8,17 @@ import 'package:google_fonts/google_fonts.dart';
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Канапе", style: TextStyle(fontSize: 20.sp, color: Colors.black),),
-        centerTitle: true,
-        backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFFAFBF9),
+      appBar: CustomAppBar(
+        text: "Канапе",
+        leading: Icon(
+          Icons.chevron_left,
+          size: 24.w,
+          color: Palette.lightGrey,
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -75,8 +78,8 @@ class DetailScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(41.r),
                               child: Image.asset(
                                 'assets/ingredient.png',
-                                width: 24.r,
-                                height: 24.r,
+                                width: 24.w,
+                                height: 24.w,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -103,7 +106,8 @@ class DetailScreen extends StatelessWidget {
                         ],
                       );
                     },
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: 4,
                       crossAxisCount: 2,
                       //mainAxisSpacing: 20.h,

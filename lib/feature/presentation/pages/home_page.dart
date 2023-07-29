@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -50,7 +51,7 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => context.push('/guest_list'),
                       style: TextButton.styleFrom(
                         minimumSize: Size(156.w, 50.w),
                         backgroundColor: Palette.orange,
@@ -70,7 +71,7 @@ class HomePage extends StatelessWidget {
                       width: 31.w,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => context.push('/wishlist'),
                       style: TextButton.styleFrom(
                         minimumSize: Size(156.w, 50.w),
                         backgroundColor: Palette.orange,

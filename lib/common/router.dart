@@ -1,6 +1,10 @@
-import 'package:birthday_app/feature/presentation/pages/detail_screen.dart';
-import 'package:birthday_app/feature/presentation/pages/home_page.dart';
 import 'package:go_router/go_router.dart';
+
+import 'package:birthday_app/feature/presentation/pages/detail_page.dart';
+import 'package:birthday_app/feature/presentation/pages/guest_list_page.dart';
+import 'package:birthday_app/feature/presentation/pages/home_page.dart';
+import 'package:birthday_app/feature/presentation/pages/wishlist_page.dart';
+
 
 abstract class AppRouter {
   static GoRouter router = GoRouter(
@@ -13,6 +17,14 @@ abstract class AppRouter {
             path: 'details',
             builder: (context, state) => const DetailScreen(), //TODO: реализовать передачу параметров
           ),
+          GoRoute(
+            path: 'wishlist',
+            builder: (context, state) => const WishlistPage(),
+          ),
+          GoRoute(
+            path: 'guest_list',
+            builder: (context, state) => const GuestListPage(),
+          )
         ],
       ),
     ],
