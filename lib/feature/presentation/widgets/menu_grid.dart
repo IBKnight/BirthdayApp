@@ -31,7 +31,6 @@ class MenuGrid extends StatelessWidget {
                   childAspectRatio: 0.8,
                   crossAxisCount: 2,
                 ),
-                //mainAxisSpacing: 20.h,
                 shrinkWrap: true,
                 itemCount: (Provider.of<ExpandedProvider>(context, listen: true)
                         .isExpanded)

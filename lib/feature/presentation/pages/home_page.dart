@@ -24,11 +24,11 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              AppBanner(),
+              const AppBanner(),
               SizedBox(
                 height: 16.h,
               ),
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 16.h,
               ),
-              EntertainmentsList(),
+              const EntertainmentsList(),
               SizedBox(
                 height: 30.h,
               ),
@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
                         animation: const MapAnimation(
                             type: MapAnimationType.linear, duration: 1),
                         CameraUpdate.newCameraPosition(
-                          CameraPosition(
+                          const CameraPosition(
                             target: Point(
                               latitude: 47.242613,
                               longitude: 38.691239,

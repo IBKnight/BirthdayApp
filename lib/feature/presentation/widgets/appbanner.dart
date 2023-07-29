@@ -58,7 +58,7 @@ class AppBanner extends StatelessWidget {
                   children: [
                     ...List.generate(
                       appbannerList.length,
-                      (index) => Indicator(
+                      (index) => _Indicator(
                         isActive:
                             Provider.of<AppBannerProvider>(context, listen: true)
                                     .selectedIndex == index,
@@ -75,8 +75,8 @@ class AppBanner extends StatelessWidget {
   }
 }
 
-class Indicator extends StatelessWidget {
-  const Indicator({Key? key, required this.isActive}) : super(key: key);
+class _Indicator extends StatelessWidget {
+  const _Indicator({Key? key, required this.isActive}) : super(key: key);
   final bool isActive;
 
   @override

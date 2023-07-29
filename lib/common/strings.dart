@@ -9,4 +9,14 @@ abstract class Strings{
   static const String expand = "Развернуть ▼";
   static const String collapse = "Свернуть ▲";
   static const String address = "Центральная ул., 84, хутор Седых";
+  static const String signUp = "Записаться";
+  static const String addGift = "Добавить подарок";
+  static const String name = "Имя";
+  static const String surname = "Фамилия";
+  static const String phoneNumber = "Телефон";
+  static const String giftTitle = "Название подарка";
+  static const String title = "Название";
+  static const String birthdate = "Дата рождения";
+  static const String profession = "Профессия";
+
 }
