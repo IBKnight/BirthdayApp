@@ -11,7 +11,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => HomePage(),
+        builder: (context, state) => const HomePage(),
         routes: [
           GoRoute(
             path: 'details',
@@ -19,11 +19,11 @@ abstract class AppRouter {
           ),
           GoRoute(
             path: 'wishlist',
-            builder: (context, state) => const WishlistPage(),
+            builder: (context, state) => WishlistPage(),
           ),
           GoRoute(
             path: 'guest_list',
-            builder: (context, state) => const GuestListPage(),
+            builder: (context, state) => GuestListPage(),
           )
         ],
       ),

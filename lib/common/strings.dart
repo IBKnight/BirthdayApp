@@ -12,11 +12,15 @@ abstract class Strings{
   static const String signUp = "Записаться";
   static const String addGift = "Добавить подарок";
   static const String name = "Имя";
-  static const String surname = "Фамилия";
+  static const String lastname = "Фамилия";
   static const String phoneNumber = "Телефон";
   static const String giftTitle = "Название подарка";
   static const String title = "Название";
   static const String birthdate = "Дата рождения";
   static const String profession = "Профессия";
+  static const String byName = "По имени";
+  static const String byLastname = "По фамилии";
+  static const String byDate = "По дате записи";
+  static const String byAge = "По возрасту";
 
 }

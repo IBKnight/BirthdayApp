@@ -1,3 +1,4 @@
+import 'package:birthday_app/common/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -13,11 +14,8 @@ import 'package:birthday_app/feature/presentation/widgets/appbanner.dart';
 import 'package:birthday_app/feature/presentation/widgets/entertainments_list.dart';
 import 'package:birthday_app/feature/presentation/widgets/menu_grid.dart';
 
-
-
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,13 +50,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () => context.push('/guest_list'),
-                      style: TextButton.styleFrom(
-                        minimumSize: Size(156.w, 50.w),
-                        backgroundColor: Palette.orange,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.r),
-                        ),
-                      ),
+                      style: AppTheme.lightTheme.textButtonTheme.style,
                       child: Text(
                         Strings.guestsList,
                         style: TextStyle(
@@ -72,13 +64,7 @@ class HomePage extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () => context.push('/wishlist'),
-                      style: TextButton.styleFrom(
-                        minimumSize: Size(156.w, 50.w),
-                        backgroundColor: Palette.orange,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.r),
-                        ),
-                      ),
+                      style: AppTheme.lightTheme.textButtonTheme.style,
                       child: Text(
                         Strings.wishlist,
                         style: TextStyle(
@@ -101,7 +87,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 16.h,
               ),
-              MenuGrid(),
+              const MenuGrid(),
               SizedBox(
                 height: 30.h,
               ),

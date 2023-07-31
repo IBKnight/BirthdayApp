@@ -11,7 +11,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAFBF9),
+      backgroundColor: const Color(0xFFFAFBF9),
       appBar: CustomAppBar(
         text: "Канапе",
         leading: Icon(
