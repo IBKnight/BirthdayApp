@@ -81,8 +81,8 @@ class HomePage extends StatelessWidget {
               ),
               Text(
                 Strings.menuTitle,
-                style:
-                    GoogleFonts.yesevaOne(fontSize: 24.sp, color: Colors.black),
+                style: GoogleFonts.yesevaOne(
+                    fontSize: 24.sp, color: Colors.black),
               ),
               SizedBox(
                 height: 16.h,
@@ -93,8 +93,8 @@ class HomePage extends StatelessWidget {
               ),
               Text(
                 Strings.entertainmentTitle,
-                style:
-                    GoogleFonts.yesevaOne(fontSize: 24.sp, color: Colors.black),
+                style: GoogleFonts.yesevaOne(
+                    fontSize: 24.sp, color: Colors.black),
               ),
               SizedBox(
                 height: 16.h,
@@ -105,8 +105,8 @@ class HomePage extends StatelessWidget {
               ),
               Text(
                 Strings.locationTitle,
-                style:
-                    GoogleFonts.yesevaOne(fontSize: 24.sp, color: Colors.black),
+                style: GoogleFonts.yesevaOne(
+                    fontSize: 24.sp, color: Colors.black),
               ),
               SizedBox(
                 height: 16.h,

@@ -7,31 +7,29 @@ class CustomTextField extends StatelessWidget {
       {Key? key,
       required this.textEditingController,
       required this.labelText,
-      this.suffixIcon,
-      this.onPressed})
+      this.suffixIcon,})
       : super(key: key);
 
   final TextEditingController textEditingController;
   final String labelText;
   final Widget? suffixIcon;
-  final Function? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 58.h,
+      height: 58.w,
       child: TextField(
+        style: TextStyle(fontSize: 16.sp),
         controller: textEditingController,
         decoration: InputDecoration(
+          labelStyle: TextStyle(
+            fontSize: 16.sp,
+            color: Palette.greenishBlack
+          ),
           filled: true,
           fillColor: Palette.lightGreen,
           labelText: labelText,
-          suffixIcon: suffixIcon != null
-              ? GestureDetector(
-            onTap: () => onPressed,
-                  child: suffixIcon,
-                )
-              : null,
+          suffixIcon: suffixIcon,
           border: const UnderlineInputBorder(
             borderSide: BorderSide.none,
           ),

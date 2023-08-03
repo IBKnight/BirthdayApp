@@ -6,14 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  const DetailScreen({Key? key, required this.item}) : super(key: key);
+
+  final CardEntity item;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFAFBF9),
       appBar: CustomAppBar(
-        text: "Канапе",
+        text: item.title,
         leading: Icon(
           Icons.chevron_left,
           size: 24.w,
@@ -39,7 +41,7 @@ class DetailScreen extends StatelessWidget {
                           height: 166.w,
                         ),
                         Text(
-                          "Канапе",
+                          item.title,
                           style: GoogleFonts.yesevaOne(
                               fontSize: 24.sp, color: Colors.black),
                         ),
@@ -50,7 +52,7 @@ class DetailScreen extends StatelessWidget {
                       top: -49.w,
                       child: ClipOval(
                         child: Image.asset(
-                          'assets/kanape.png',
+                          item.image,
                           width: 357.w,
                           height: 264.w,
                           fit: BoxFit.cover,
@@ -107,7 +109,7 @@ class DetailScreen extends StatelessWidget {
                       );
                     },
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: 4,
                       crossAxisCount: 2,
                       //mainAxisSpacing: 20.h,

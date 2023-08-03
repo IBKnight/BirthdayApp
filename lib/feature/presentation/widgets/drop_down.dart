@@ -28,10 +28,11 @@ class _DropDownListState extends State<DropDownList> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
+      iconSize: 20.w,
       value: _dropdownValue,
       style: TextStyle(color: Palette.greenishBlack, fontSize: 14.sp),
       underline: Container(
-        height: 2,
+        height: 1.h,
         color: Palette.greenishBlack,
       ),
       items: _list.map<DropdownMenuItem<String>>((String value) {
