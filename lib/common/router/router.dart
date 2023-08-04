@@ -63,7 +63,7 @@ abstract class AppRouter {
           ),
           GoRoute(
             path: 'guest_list',
-            builder: (context, state) => const GuestListProv(),
+            builder: (context, state) => GuestListPage(),
           )
         ],
       ),

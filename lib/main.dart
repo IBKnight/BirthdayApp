@@ -7,9 +7,14 @@ import 'package:yandex_mapkit/yandex_mapkit.dart';
 void main() async {
   AndroidYandexMap.useAndroidViewSurface = false;
   await Hive.initFlutter();
+  await Hive.deleteFromDisk();
+  await Hive.deleteBoxFromDisk('guests');
+
+
+
   Hive.registerAdapter<GuestModel>(GuestModelAdapter());
 
-  final box = await Hive.openBox<GuestModel>("guests");
+  await Hive.openBox<GuestModel>("guests");
 
   runApp(const BirthdayApp());
 }

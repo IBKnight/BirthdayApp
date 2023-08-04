@@ -111,55 +111,55 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 16.h,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Placeholder(
-                  fallbackHeight: 246.w,
-                  child: YandexMap(
-                    gestureRecognizers: {
-                      Factory<OneSequenceGestureRecognizer>(
-                        () => EagerGestureRecognizer(),
-                      )
-                    },
-                    mapObjects: [
-                      PlacemarkMapObject(
-                        mapId: const MapObjectId("Контер страйк"),
-                        point: const Point(
-                          latitude: 47.242613,
-                          longitude: 38.691239,
-                        ),
-                        text: const PlacemarkText(
-                            text: "Контра сити", style: PlacemarkTextStyle()),
-                        icon: PlacemarkIcon.single(
-                          PlacemarkIconStyle(
-                            scale: MediaQuery.of(context).size.shortestSide *
-                                0.0018,
-                            zIndex: 1,
-                            image: BitmapDescriptor.fromAssetImage(
-                              "assets/route_end.png",
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                    onMapCreated: (YandexMapController controller) {
-                      controller.moveCamera(
-                        animation: const MapAnimation(
-                            type: MapAnimationType.linear, duration: 1),
-                        CameraUpdate.newCameraPosition(
-                          const CameraPosition(
-                            target: Point(
-                              latitude: 47.242613,
-                              longitude: 38.691239,
-                            ),
-                            zoom: 11,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+              //   child: Placeholder(
+              //     fallbackHeight: 246.w,
+              //     child: YandexMap(
+              //       gestureRecognizers: {
+              //         Factory<OneSequenceGestureRecognizer>(
+              //           () => EagerGestureRecognizer(),
+              //         )
+              //       },
+              //       mapObjects: [
+              //         PlacemarkMapObject(
+              //           mapId: const MapObjectId("Контер страйк"),
+              //           point: const Point(
+              //             latitude: 47.242613,
+              //             longitude: 38.691239,
+              //           ),
+              //           text: const PlacemarkText(
+              //               text: "Контра сити", style: PlacemarkTextStyle()),
+              //           icon: PlacemarkIcon.single(
+              //             PlacemarkIconStyle(
+              //               scale: MediaQuery.of(context).size.shortestSide *
+              //                   0.0018,
+              //               zIndex: 1,
+              //               image: BitmapDescriptor.fromAssetImage(
+              //                 "assets/route_end.png",
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //       onMapCreated: (YandexMapController controller) {
+              //         controller.moveCamera(
+              //           animation: const MapAnimation(
+              //               type: MapAnimationType.linear, duration: 1),
+              //           CameraUpdate.newCameraPosition(
+              //             const CameraPosition(
+              //               target: Point(
+              //                 latitude: 47.242613,
+              //                 longitude: 38.691239,
+              //               ),
+              //               zoom: 11,
+              //             ),
+              //           ),
+              //         );
+              //       },
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: 4.h,
               ),

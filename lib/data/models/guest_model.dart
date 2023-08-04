@@ -11,6 +11,8 @@ class GuestModel extends HiveObject with _$GuestModel {
 
   @HiveType(typeId: 1)
   factory GuestModel({
+    @HiveField(0)
+    required int? id,
     @HiveField(1)
     required String name,
     @HiveField(2)

@@ -17,6 +17,7 @@ class GuestModelAdapter extends TypeAdapter<_$_GuestModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return _$_GuestModel(
+      id: fields[0] as int?,
       name: fields[1] as String,
       surname: fields[2] as String,
       birthday: fields[3] as DateTime,
@@ -28,7 +29,9 @@ class GuestModelAdapter extends TypeAdapter<_$_GuestModel> {
   @override
   void write(BinaryWriter writer, _$_GuestModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
+      ..writeByte(0)
+      ..write(obj.id)
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)
@@ -58,6 +61,7 @@ class GuestModelAdapter extends TypeAdapter<_$_GuestModel> {
 
 _$_GuestModel _$$_GuestModelFromJson(Map<String, dynamic> json) =>
     _$_GuestModel(
+      id: json['id'] as int?,
       name: json['name'] as String,
       surname: json['surname'] as String,
       birthday: DateTime.parse(json['birthday'] as String),
@@ -67,6 +71,7 @@ _$_GuestModel _$$_GuestModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_GuestModelToJson(_$_GuestModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'surname': instance.surname,
       'birthday': instance.birthday.toIso8601String(),

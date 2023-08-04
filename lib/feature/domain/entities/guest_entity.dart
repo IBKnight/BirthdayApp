@@ -1,4 +1,5 @@
 class GuestEntity {
+  final int? id;
   final String name;
   final String surname;
   final DateTime birthday;
@@ -6,5 +7,5 @@ class GuestEntity {
   final String profession;
 
   GuestEntity(this.name, this.surname, this.birthday, this.phoneNumber,
-      this.profession);
+      this.profession, {this.id});
 }

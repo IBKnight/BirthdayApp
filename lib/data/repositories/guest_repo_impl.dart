@@ -5,6 +5,7 @@ import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
 import 'package:birthday_app/feature/domain/repositories/guest_repository.dart';
 
 class GuestRepositoryImpl implements GuestRepository{
+
   @override
   Future<void> addGuest(GuestEntity guest) async{
     await LocalDataSource.addGuest(GuestDataMapper.fromEntity(guest));

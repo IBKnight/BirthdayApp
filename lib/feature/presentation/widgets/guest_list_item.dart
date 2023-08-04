@@ -4,12 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:birthday_app/common/palette.dart';
 
-
 class GuestListItem extends StatelessWidget {
   const GuestListItem({Key? key, required this.item}) : super(key: key);
 
   final GuestEntity item;
-
 
   @override
   Widget build(BuildContext context) {
@@ -72,16 +70,16 @@ class GuestListItem extends StatelessWidget {
     );
   }
 
-
   int calculateAge(DateTime birthDate) {
     final currentDate = DateTime.now();
     int age = currentDate.year - birthDate.year;
 
-    if (currentDate.month < birthDate.month || (currentDate.month == birthDate.month && currentDate.day < birthDate.day)) {
+    if (currentDate.month < birthDate.month ||
+        (currentDate.month == birthDate.month &&
+            currentDate.day < birthDate.day)) {
       age--;
     }
 
     return age;
   }
-
 }
