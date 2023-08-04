@@ -11,6 +11,16 @@ class AddGuest extends GuestListEvent {
   AddGuest(this.newGuest);
 }
 
-class UpdateGuest extends GuestListEvent {}
+class UpdateGuest extends GuestListEvent {
 
-class DeleteGuest extends GuestListEvent {}
+  final GuestEntity newGuest;
+
+  UpdateGuest(this.newGuest);
+
+}
+
+class DeleteGuest extends GuestListEvent {
+  final GuestEntity guest;
+
+  DeleteGuest(this.guest);
+}

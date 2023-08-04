@@ -1,33 +1,32 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
-part 'guest_model.freezed.dart';
-
 part 'guest_model.g.dart';
 
-@freezed
-class GuestModel extends HiveObject with _$GuestModel {
-  GuestModel._();
+@HiveType(typeId: 1)
+class GuestModel extends HiveObject{
 
-  @HiveType(typeId: 1)
-  factory GuestModel({
+
+
     @HiveField(0)
-    required int? id,
+    int? id;
     @HiveField(1)
-    required String name,
+    String name;
     @HiveField(2)
-    required String surname,
+    String surname;
     @HiveField(3)
-    required DateTime birthday,
+    DateTime birthday;
     @HiveField(4)
-    required String phoneNumber,
+    String phoneNumber;
     @HiveField(5)
-    required String profession,
-  }) = _GuestModel;
+    String profession;
 
 
-
-
-  factory GuestModel.fromJson(Map<String, dynamic> json) =>
-      _$GuestModelFromJson(json);
+    GuestModel(
+        {this.id,
+      required this.name,
+      required this.surname,
+      required this.birthday,
+      required this.phoneNumber,
+      required this.profession});
 }

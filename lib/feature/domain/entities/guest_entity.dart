@@ -7,5 +7,5 @@ class GuestEntity {
   final String profession;
 
   GuestEntity(this.name, this.surname, this.birthday, this.phoneNumber,
-      this.profession, {this.id});
+      this.profession,{this.id});
 }

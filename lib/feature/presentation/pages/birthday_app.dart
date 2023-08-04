@@ -31,3 +31,4 @@ class BirthdayApp extends StatelessWidget {
     );
   }
 }
+//TODO: поместить блок провайдер на уровень выше того, где юзаю и передать его в боттом шит через BlocProvider.value();

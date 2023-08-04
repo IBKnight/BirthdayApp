@@ -15,4 +15,19 @@ class LocalDataSource {
 
     return guests;
   }
+
+
+  static Future<void> deleteGuest(GuestModel guest) async {
+    final guestBox = Hive.box<GuestModel>('guests');
+    guestBox.delete(guest.id);
+  }
+
+  static Future<void> upodateGuest(GuestModel newGuest) async {
+    final guestBox = Hive.box<GuestModel>('guests');
+    guestBox.put(newGuest.id!, newGuest);
+
+
+  }
+
+
 }

@@ -6,17 +6,17 @@ part of 'guest_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class GuestModelAdapter extends TypeAdapter<_$_GuestModel> {
+class GuestModelAdapter extends TypeAdapter<GuestModel> {
   @override
   final int typeId = 1;
 
   @override
-  _$_GuestModel read(BinaryReader reader) {
+  GuestModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return _$_GuestModel(
+    return GuestModel(
       id: fields[0] as int?,
       name: fields[1] as String,
       surname: fields[2] as String,
@@ -27,7 +27,7 @@ class GuestModelAdapter extends TypeAdapter<_$_GuestModel> {
   }
 
   @override
-  void write(BinaryWriter writer, _$_GuestModel obj) {
+  void write(BinaryWriter writer, GuestModel obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)
@@ -54,27 +54,3 @@ class GuestModelAdapter extends TypeAdapter<_$_GuestModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-_$_GuestModel _$$_GuestModelFromJson(Map<String, dynamic> json) =>
-    _$_GuestModel(
-      id: json['id'] as int?,
-      name: json['name'] as String,
-      surname: json['surname'] as String,
-      birthday: DateTime.parse(json['birthday'] as String),
-      phoneNumber: json['phoneNumber'] as String,
-      profession: json['profession'] as String,
-    );
-
-Map<String, dynamic> _$$_GuestModelToJson(_$_GuestModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'surname': instance.surname,
-      'birthday': instance.birthday.toIso8601String(),
-      'phoneNumber': instance.phoneNumber,
-      'profession': instance.profession,
-    };

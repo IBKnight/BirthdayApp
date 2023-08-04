@@ -1,13 +1,30 @@
+import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
 import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
+import 'package:birthday_app/feature/presentation/widgets/custom_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:birthday_app/common/palette.dart';
 
 class GuestListItem extends StatelessWidget {
-  const GuestListItem({Key? key, required this.item}) : super(key: key);
+  GuestListItem({
+    Key? key,
+    required this.item,
+    required this.nameController,
+    required this.lastnameController,
+    required this.dateController,
+    required this.phoneController,
+    required this.professionController,
+  }) : super(key: key);
 
   final GuestEntity item;
+
+  final TextEditingController nameController;
+  final TextEditingController lastnameController;
+  final TextEditingController dateController;
+  final TextEditingController phoneController;
+  final TextEditingController professionController;
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +78,31 @@ class GuestListItem extends StatelessWidget {
             ],
           ),
         ),
-        Icon(
-          Icons.delete_forever,
-          size: 20.w,
-          color: Palette.grey,
+        CustomBottomSheet(
+          nameController: nameController,
+          lastnameController: lastnameController,
+          dateController: dateController,
+          phoneController: phoneController,
+          professionController: professionController,
+          oldGuest: item,
+          child: Icon(
+            Icons.edit,
+            size: 20.w,
+            color: Palette.grey,
+          ),
+        ),
+        SizedBox(
+          width: 20.w,
+        ),
+        GestureDetector(
+          child: Icon(
+            Icons.delete_forever,
+            size: 20.w,
+            color: Palette.grey,
+          ),
+          onTap: () {
+            context.read<GuestListBloc>().add(DeleteGuest(item));
+          },
         ),
       ],
     );

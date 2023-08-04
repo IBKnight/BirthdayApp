@@ -23,5 +23,15 @@ class GuestRepositoryImpl implements GuestRepository{
     return guestEntities;
   }
 
+  @override
+  Future<void> deleteGuest(GuestEntity guest) async{
+    await LocalDataSource.deleteGuest(GuestDataMapper.fromEntity(guest));
+  }
+
+  @override
+  Future<void> updateGuest(GuestEntity guest) async{
+    await LocalDataSource.upodateGuest(GuestDataMapper.fromEntity(guest));
+  }
+
 
 }

@@ -1,15 +1,20 @@
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/common/strings.dart';
+import 'package:birthday_app/common/theme.dart';
 import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
+import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
 import 'package:birthday_app/feature/presentation/widgets/custom_appbar.dart';
 import 'package:birthday_app/feature/presentation/widgets/custom_bottom_sheet.dart';
+import 'package:birthday_app/feature/presentation/widgets/custom_date_picker.dart';
 import 'package:birthday_app/feature/presentation/widgets/drop_down.dart';
 import 'package:birthday_app/feature/presentation/widgets/guest_list_item.dart';
+import 'package:birthday_app/feature/presentation/widgets/text_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-//
+
+
 // class GuestListProv extends StatelessWidget {
 //   const GuestListProv({Key? key}) : super(key: key);
 //
@@ -21,6 +26,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 //     );
 //   }
 // }
+
+// CustomBottomSheet(
+//   nameController: _nameController,
+//   lastnameController: _lastnameController,
+//   dateController: _dateController,
+//   phoneController: _phoneController,
+//   professionController: _professionController,
+// );
 
 class GuestListPage extends StatelessWidget {
   GuestListPage({Key? key}) : super(key: key);
@@ -47,58 +60,77 @@ class GuestListPage extends StatelessWidget {
           return switch (state) {
             GuestListLoading _ =>
               const Center(child: CircularProgressIndicator()),
-            GuestListLoaded _ => Stack(children: [
-                Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${state.guests.length} гостя",
-                            style:
-                                TextStyle(fontSize: 14.sp, color: Palette.grey),
-                          ),
-                          const DropDownList(),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: ListView.builder(
-                          itemExtent: 80.w,
-                          shrinkWrap: true,
-                          itemCount: state.guests.length,
-                          itemBuilder: (context, int index) {
-                            final item = state.guests[index];
-                            return GuestListItem(item: item);
-                          },
+            GuestListLoaded _ => Stack(
+                children: [
+                  Column(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${state.guests.length} гостя",
+                              style: TextStyle(
+                                  fontSize: 14.sp, color: Palette.grey),
+                            ),
+                            const DropDownList(),
+                          ],
                         ),
                       ),
-                    ),
-                    SizedBox(height: 16.h)
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 47.h, right: 32.w),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: GestureDetector(
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
+                          child: ListView.builder(
+                            itemExtent: 80.w,
+                            shrinkWrap: true,
+                            itemCount: state.guests.length,
+                            itemBuilder: (context, int index) {
+                              final item = state.guests[index];
+                              return GuestListItem(
+                                item: item,
+                                nameController: _nameController,
+                                lastnameController: _lastnameController,
+                                dateController: _dateController,
+                                phoneController: _phoneController,
+                                professionController: _professionController,
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16.h)
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 47.h, right: 32.w),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
                       child: CustomBottomSheet(
                         nameController: _nameController,
                         lastnameController: _lastnameController,
                         dateController: _dateController,
                         phoneController: _phoneController,
                         professionController: _professionController,
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 84.w,
+                          height: 84.w,
+                          decoration: const BoxDecoration(
+                              color: Palette.darkGreen, shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.add_rounded,
+                            size: 84.w,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                )
-              ]),
+                  )
+                ],
+              ),
             GuestListError _ => Center(
                 child: Text(
                   state.message.toString(),

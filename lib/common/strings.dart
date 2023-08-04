@@ -10,6 +10,7 @@ abstract class Strings{
   static const String collapse = "Свернуть ▲";
   static const String address = "Центральная ул., 84, хутор Седых";
   static const String signUp = "Записаться";
+  static const String updateGuest = "Обновить";
   static const String addGift = "Добавить подарок";
   static const String name = "Имя";
   static const String lastname = "Фамилия";

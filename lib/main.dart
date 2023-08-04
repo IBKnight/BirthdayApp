@@ -7,10 +7,6 @@ import 'package:yandex_mapkit/yandex_mapkit.dart';
 void main() async {
   AndroidYandexMap.useAndroidViewSurface = false;
   await Hive.initFlutter();
-  await Hive.deleteFromDisk();
-  await Hive.deleteBoxFromDisk('guests');
-
-
 
   Hive.registerAdapter<GuestModel>(GuestModelAdapter());
 
