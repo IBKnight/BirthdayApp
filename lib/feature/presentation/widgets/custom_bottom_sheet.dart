@@ -108,14 +108,13 @@ class CustomBottomSheet extends StatelessWidget {
                         oldGuest != null
                             ? context.read<GuestListBloc>().add(
                           UpdateGuest(
-                            // oldGuest.profession = professionController.text,
-
                             GuestEntity(
                                 nameController.text,
                                 lastnameController.text,
                                 DateTime.parse(dateController.text),
                                 phoneController.text,
                                 professionController.text,
+                                oldGuest!.recordingDate,
                                 id: oldGuest!.id),
                           ),
                         )
@@ -127,6 +126,7 @@ class CustomBottomSheet extends StatelessWidget {
                               DateTime.parse(dateController.text),
                               phoneController.text,
                               professionController.text,
+                              DateTime.now()
                             ),
                           ),
                         );

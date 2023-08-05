@@ -49,6 +49,7 @@ class _EntertainmentsListState extends State<EntertainmentsList> {
                 decoration: TextDecoration.underline,
                 color: Colors.black,
                 fontSize: 14.sp,
+                height: 20.h/14.sp
               ),
             ),
           ),

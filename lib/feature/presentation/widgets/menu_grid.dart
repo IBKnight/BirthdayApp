@@ -56,7 +56,8 @@ class _MenuGridState extends State<MenuGrid> {
               style: GoogleFonts.jost(
                   decoration: TextDecoration.underline,
                   color: Palette.greenishBlack,
-                  fontSize: 14.sp),
+                  fontSize: 14.sp,
+              height: 20.h/14.sp),
             ),
           ),
         ),

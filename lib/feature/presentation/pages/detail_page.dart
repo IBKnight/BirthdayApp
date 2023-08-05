@@ -38,12 +38,14 @@ class DetailScreen extends StatelessWidget {
                     Column(
                       children: [
                         SizedBox(
-                          height: 166.w,
-                        ),
-                        Text(
-                          item.title,
-                          style: GoogleFonts.yesevaOne(
-                              fontSize: 24.sp, color: Colors.black),
+                          height: 166.w),
+                        SizedBox(
+                          width: 140.w,
+                          child: Text(
+                            item.title,
+                            style: GoogleFonts.yesevaOne(
+                                fontSize: 24.sp, color: Colors.black),
+                          ),
                         ),
                       ],
                     ),

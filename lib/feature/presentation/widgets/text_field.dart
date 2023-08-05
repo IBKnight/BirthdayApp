@@ -23,12 +23,14 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 58.w,
-      child: TextField(
+      child: TextFormField(
+        cursorColor: Palette.greenishBlack,
         textCapitalization: TextCapitalization.words,
         readOnly: isReadOnly,
         style: TextStyle(fontSize: 16.sp),
-        inputFormatters:
-            isNumbered ? [FilteringTextInputFormatter.digitsOnly] : [],
+        inputFormatters: isNumbered
+            ? [FilteringTextInputFormatter.digitsOnly]
+            : [FilteringTextInputFormatter.allow(RegExp('[a-zA-Z]'))],
         controller: textEditingController,
         decoration: InputDecoration(
           labelStyle: TextStyle(fontSize: 16.sp, color: Palette.greenishBlack),

@@ -4,12 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/feature/domain/entities/entertainments_entity.dart';
 
-
 class EntertainmentsItem extends StatelessWidget {
   const EntertainmentsItem({Key? key, required this.item}) : super(key: key);
 
   final EntertainmentsEntity item;
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +38,18 @@ class EntertainmentsItem extends StatelessWidget {
               Text(
                 item.title,
                 style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Palette.greenishBlack,
-                ),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Palette.greenishBlack,
+                    height: 20.h / 14.sp),
               ),
               Text(
                 item.subtitle,
                 style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Palette.grey,
-                ),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Palette.grey,
+                    height: 20.h / 14.sp),
               ),
             ],
           ),

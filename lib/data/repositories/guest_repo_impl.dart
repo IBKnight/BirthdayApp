@@ -33,5 +33,15 @@ class GuestRepositoryImpl implements GuestRepository{
     await LocalDataSource.upodateGuest(GuestDataMapper.fromEntity(guest));
   }
 
+  @override
+  Future<List<GuestEntity>> sortGuests(String sortArgument) async{
+    final List<GuestModel> guestModels = await LocalDataSource.sortGuests(sortArgument);
+
+    final List<GuestEntity> guestEntities = guestModels.map(
+        (guestModel) => GuestDataMapper.toEntity(guestModel)).toList();
+
+    return guestEntities;
+  }
+
 
 }

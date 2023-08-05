@@ -1,6 +1,8 @@
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/common/strings.dart';
+import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DropDownList extends StatefulWidget {
@@ -21,14 +23,17 @@ class _DropDownListState extends State<DropDownList> {
 
   @override
   void initState() {
-    _dropdownValue = _list.first;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-      iconSize: 20.w,
+      icon: Icon(
+        Icons.arrow_drop_down,
+        size: 30.w,
+      ),
+      hint: const Text("Сортировать:"),
       value: _dropdownValue,
       style: TextStyle(color: Palette.greenishBlack, fontSize: 14.sp),
       underline: Container(
@@ -42,10 +47,10 @@ class _DropDownListState extends State<DropDownList> {
         );
       }).toList(),
       onChanged: (String? value) {
-        // This is called when the user selects an item.
         setState(
           () {
             _dropdownValue = value!;
+            context.read<GuestListBloc>().add(SortGuest(value!));
           },
         );
       },

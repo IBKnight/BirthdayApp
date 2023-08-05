@@ -6,5 +6,6 @@ abstract interface class GuestRepository{
   Future<List<GuestEntity>> getGuests();
   Future<void> deleteGuest(GuestEntity guest);
   Future<void> updateGuest(GuestEntity guest);
+  Future<List<GuestEntity>> sortGuests(String sortArgument);
 
 }

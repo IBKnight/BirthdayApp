@@ -24,3 +24,10 @@ class DeleteGuest extends GuestListEvent {
 
   DeleteGuest(this.guest);
 }
+
+class SortGuest extends GuestListEvent{
+  final String sortParam;
+
+  SortGuest(this.sortParam);
+}
+

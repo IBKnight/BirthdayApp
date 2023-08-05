@@ -40,7 +40,8 @@ class MenuItem extends StatelessWidget {
             style: TextStyle(
                 color: Palette.grey,
                 fontSize: 14.sp,
-                fontWeight: FontWeight.w400
+                fontWeight: FontWeight.w400,
+              height: 14.w/14.sp
             ),
           )
         ],

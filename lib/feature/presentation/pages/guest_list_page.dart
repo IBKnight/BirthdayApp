@@ -1,19 +1,15 @@
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/common/strings.dart';
-import 'package:birthday_app/common/theme.dart';
+import 'package:birthday_app/common/validator.dart';
 import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
-import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
 import 'package:birthday_app/feature/presentation/widgets/custom_appbar.dart';
 import 'package:birthday_app/feature/presentation/widgets/custom_bottom_sheet.dart';
-import 'package:birthday_app/feature/presentation/widgets/custom_date_picker.dart';
 import 'package:birthday_app/feature/presentation/widgets/drop_down.dart';
 import 'package:birthday_app/feature/presentation/widgets/guest_list_item.dart';
-import 'package:birthday_app/feature/presentation/widgets/text_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 // class GuestListProv extends StatelessWidget {
 //   const GuestListProv({Key? key}) : super(key: key);
@@ -27,22 +23,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 //   }
 // }
 
-// CustomBottomSheet(
-//   nameController: _nameController,
-//   lastnameController: _lastnameController,
-//   dateController: _dateController,
-//   phoneController: _phoneController,
-//   professionController: _professionController,
-// );
+class GuestListPage extends StatefulWidget {
+  const GuestListPage({Key? key}) : super(key: key);
 
-class GuestListPage extends StatelessWidget {
-  GuestListPage({Key? key}) : super(key: key);
+  @override
+  State<GuestListPage> createState() => _GuestListPageState();
+}
+
+class _GuestListPageState extends State<GuestListPage> {
 
   final TextEditingController _nameController = TextEditingController();
+
   final TextEditingController _lastnameController = TextEditingController();
+
   final TextEditingController _dateController = TextEditingController();
+
   final TextEditingController _phoneController = TextEditingController();
+
   final TextEditingController _professionController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _lastnameController.dispose();
+    _dateController.dispose();
+    _phoneController.dispose();
+    _professionController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +80,9 @@ class GuestListPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${state.guests.length} гостя",
+                              "${state.guests.length} ${guestCountValid(state.guests.length)}",
                               style: TextStyle(
-                                  fontSize: 14.sp, color: Palette.grey),
+                                  fontSize: 14.sp, color: Palette.grey, height: 20.23/14.w),
                             ),
                             const DropDownList(),
                           ],

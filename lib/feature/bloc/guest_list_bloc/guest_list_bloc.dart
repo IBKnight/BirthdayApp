@@ -9,8 +9,6 @@ part 'guest_list_state.dart';
 
 class GuestListBloc extends Bloc<GuestListEvent, GuestListState> {
   GuestListBloc() : super(GuestListLoading()) {
-    final repository = GuestRepositoryImpl();
-
     on<LoadGuestList>((event, emit) async {
       try {
         await Future.delayed(const Duration(milliseconds: 1000));
@@ -62,5 +60,16 @@ class GuestListBloc extends Bloc<GuestListEvent, GuestListState> {
       }
     });
 
+    on<SortGuest>((event, emit) async {
+      try {
+        final repository = GuestRepositoryImpl();
+
+        final List<GuestEntity> guests =
+            await repository.sortGuests(event.sortParam);
+        emit(GuestListLoaded(guests));
+      } catch (e) {
+        emit(GuestListError(e.toString()));
+      }
+    });
   }
 }

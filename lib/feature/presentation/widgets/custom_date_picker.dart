@@ -1,4 +1,5 @@
 import 'package:birthday_app/common/palette.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,6 +20,17 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
     return GestureDetector(
       onTap: () async {
         final DateTime? dateTime = await showDatePicker(
+          builder: (context, child){
+            return Theme(
+              data: Theme.of(context).copyWith(
+                colorScheme: const ColorScheme.light(
+                  primary: Palette.darkGreen,
+                  onSurface: Palette.greenishBlack,
+                ),
+              ),
+              child: child!,
+            );
+          },
             context: context,
             initialDate: selectedDate,
             firstDate: DateTime(2000),

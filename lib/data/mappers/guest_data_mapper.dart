@@ -9,7 +9,9 @@ class GuestDataMapper {
       guestModel.birthday,
       guestModel.phoneNumber,
       guestModel.profession,
-      id: guestModel.key
+      guestModel.recordingDate,
+      id: guestModel.key,
+      pathToImage: guestModel.pathToImage
     );
   }
 
@@ -21,6 +23,8 @@ class GuestDataMapper {
       birthday: guestEntity.birthday,
       phoneNumber: guestEntity.phoneNumber,
       profession: guestEntity.profession,
+      recordingDate: guestEntity.recordingDate,
+      pathToImage: guestEntity.pathToImage
     );
   }
 }

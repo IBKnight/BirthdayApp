@@ -23,13 +23,15 @@ class GuestModelAdapter extends TypeAdapter<GuestModel> {
       birthday: fields[3] as DateTime,
       phoneNumber: fields[4] as String,
       profession: fields[5] as String,
+      recordingDate: fields[6] as DateTime,
+      pathToImage: fields[7] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, GuestModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,7 +43,11 @@ class GuestModelAdapter extends TypeAdapter<GuestModel> {
       ..writeByte(4)
       ..write(obj.phoneNumber)
       ..writeByte(5)
-      ..write(obj.profession);
+      ..write(obj.profession)
+      ..writeByte(6)
+      ..write(obj.recordingDate)
+      ..writeByte(7)
+      ..write(obj.pathToImage);
   }
 
   @override
