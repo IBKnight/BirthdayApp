@@ -1,12 +1,11 @@
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/common/strings.dart';
+import 'package:birthday_app/bloc/wishlist_bloc/wishlist_bloc.dart';
 import 'package:birthday_app/common/theme.dart';
-import 'package:birthday_app/common/validator.dart';
-import 'package:birthday_app/feature/bloc/wishlist_bloc/wishlist_bloc.dart';
-import 'package:birthday_app/feature/domain/entities/wish_list_entity.dart';
-import 'package:birthday_app/feature/presentation/widgets/custom_appbar.dart';
-import 'package:birthday_app/feature/presentation/widgets/text_field.dart';
-import 'package:birthday_app/feature/presentation/widgets/wish_list_item.dart';
+import 'package:birthday_app/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/presentation/widgets/custom_appbar.dart';
+import 'package:birthday_app/presentation/widgets/text_field.dart';
+import 'package:birthday_app/presentation/widgets/wish_list_item.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,7 +56,7 @@ class _WishlistPageState extends State<WishlistPage> {
                         child: Padding(
                           padding: EdgeInsets.all(16.w),
                           child: ListView.builder(
-                            itemExtent: 56.h,
+                            itemExtent: 56.w,
                             itemCount: state.wishes.length,
                             itemBuilder: (context, index) {
                               WishEntity item = state.wishes[index];
@@ -112,18 +111,6 @@ class _WishlistPageState extends State<WishlistPage> {
                                               url: _urlController.text,
                                               isPicked: false,
                                             )));
-
-                                            showDialog<String>(
-                                                context: context,
-                                                builder: (BuildContext context) => AlertDialog(
-                                                    title: const Text('AlertDialog Title'),
-                                                    content: const Text('AlertDialog description'),
-                                                    actions: [
-                                                    TextButton(
-                                                    onPressed: () => Navigator.pop(context, 'Cancel'),
-                                            child: const Text('Cancel'),
-                                            )]));
-
                                             Navigator.pop(context);
                                             _titleController.text = '';
                                             _urlController.text = '';

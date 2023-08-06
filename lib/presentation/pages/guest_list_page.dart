@@ -1,11 +1,11 @@
+import 'package:birthday_app/bloc/guest_list_bloc/guest_list_bloc.dart';
 import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/common/strings.dart';
 import 'package:birthday_app/common/validator.dart';
-import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
-import 'package:birthday_app/feature/presentation/widgets/custom_appbar.dart';
-import 'package:birthday_app/feature/presentation/widgets/guest_list_bottom_sheet.dart';
-import 'package:birthday_app/feature/presentation/widgets/drop_down.dart';
-import 'package:birthday_app/feature/presentation/widgets/guest_list_item.dart';
+import 'package:birthday_app/presentation/widgets/custom_appbar.dart';
+import 'package:birthday_app/presentation/widgets/guest_list_bottom_sheet.dart';
+import 'package:birthday_app/presentation/widgets/drop_down.dart';
+import 'package:birthday_app/presentation/widgets/guest_list_item.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

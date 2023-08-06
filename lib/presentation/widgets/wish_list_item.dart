@@ -1,7 +1,7 @@
+import 'package:birthday_app/bloc/wishlist_bloc/wishlist_bloc.dart';
 import 'package:birthday_app/common/palette.dart';
-import 'package:birthday_app/feature/bloc/wishlist_bloc/wishlist_bloc.dart';
-import 'package:birthday_app/feature/domain/entities/wish_list_entity.dart';
-import 'package:birthday_app/feature/presentation/widgets/hyper_text_underline.dart';
+import 'package:birthday_app/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/presentation/widgets/hyper_text_underline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

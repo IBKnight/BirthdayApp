@@ -1,4 +1,4 @@
-part of 'guest_list_bloc.dart';
+part of '../../../bloc/guest_list_bloc/guest_list_bloc.dart';
 
 @immutable
 sealed class GuestListEvent {}

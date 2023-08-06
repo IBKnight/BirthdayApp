@@ -1,8 +1,9 @@
 import 'package:birthday_app/data/datasources/remote/remote_datasource.dart';
-import 'package:birthday_app/data/mappers/wishlist_data_mapper.dart';
 import 'package:birthday_app/data/models/wish_list/wish_list_model.dart';
-import 'package:birthday_app/feature/domain/entities/wish_list_entity.dart';
-import 'package:birthday_app/feature/domain/repositories/wish_list_repository.dart';
+import 'package:birthday_app/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/data/mappers/wishlist_data_mapper.dart';
+import 'package:birthday_app/domain/repositories/wish_list_repository.dart';
+
 
 class WishListRepositoryImpl implements WishListRepository{
   @override

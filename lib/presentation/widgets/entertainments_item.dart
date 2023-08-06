@@ -1,8 +1,8 @@
+import 'package:birthday_app/common/palette.dart';
+import 'package:birthday_app/domain/entities/entertainments_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:birthday_app/common/palette.dart';
-import 'package:birthday_app/feature/domain/entities/entertainments_entity.dart';
 
 class EntertainmentsItem extends StatelessWidget {
   const EntertainmentsItem({Key? key, required this.item}) : super(key: key);

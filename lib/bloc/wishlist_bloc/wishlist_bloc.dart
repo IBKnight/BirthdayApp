@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:birthday_app/data/repositories/wish_list_repo_impl.dart';
-import 'package:birthday_app/feature/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/domain/repositories/wish_list_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -9,13 +9,15 @@ part 'wishlist_event.dart';
 part 'wishlist_state.dart';
 
 class WishListBloc extends Bloc<WishListEvent, WishListState> {
-  WishListBloc() : super(WishListLoading()) {
+
+  final WishListRepository repository;
+
+  WishListBloc({required this.repository}) : super(WishListLoading()) {
 
     on<LoadWishList> (_loadWishList);
     on<AddWish> (_addNewWish);
     on<UpdateWish> (_updateWish);
     on<DeleteWish> (_deleteWish);
-
 
   }
 
@@ -23,7 +25,6 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
     try {
       await Future.delayed(const Duration(milliseconds: 1000));
 
-      final repository = WishListRepositoryImpl();
       final List<WishEntity> wishes = await repository.getWishes();
 
       emit(WishListLoaded(wishes));
@@ -34,8 +35,6 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
 
   Future<void> _addNewWish (AddWish event, Emitter<WishListState> emit) async{
     try {
-      final repository = WishListRepositoryImpl();
-
       await repository.addWish(event.newWish);
 
       final List<WishEntity> wishes = await repository.getWishes();
@@ -48,8 +47,6 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
 
   Future<void> _updateWish (UpdateWish event, Emitter<WishListState> emit) async{
     try {
-      final repository = WishListRepositoryImpl();
-
       await repository.updateWish(event.newWish);
 
       final List<WishEntity> wishes = await repository.getWishes();
@@ -63,8 +60,6 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
 
   Future<void> _deleteWish (DeleteWish event, Emitter<WishListState> emit) async{
     try {
-      final repository = WishListRepositoryImpl();
-
       await repository.deleteWish(event.id);
 
       final List<WishEntity> wishes = await repository.getWishes();

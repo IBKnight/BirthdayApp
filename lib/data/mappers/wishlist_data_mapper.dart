@@ -1,5 +1,5 @@
 import 'package:birthday_app/data/models/wish_list/wish_list_model.dart';
-import 'package:birthday_app/feature/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/domain/entities/wish_list_entity.dart';
 
 class WishListDataMapper {
   static WishEntity toEntity(WishModel wishListModel) {

@@ -1,14 +1,18 @@
+
 import 'package:birthday_app/data/repositories/guest_repo_impl.dart';
-import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
+import 'package:birthday_app/domain/entities/guest_entity.dart';
+import 'package:birthday_app/domain/repositories/guest_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-part 'guest_list_event.dart';
+part '../../bloc/guest_list_bloc/guest_list_event.dart';
 
 part 'guest_list_state.dart';
 
 class GuestListBloc extends Bloc<GuestListEvent, GuestListState> {
-  GuestListBloc() : super(GuestListLoading()) {
+  final GuestRepository repository;
+
+  GuestListBloc({required this.repository}) : super(GuestListLoading()) {
     on<LoadGuestList>(_loadGuestList);
     on<AddGuest>(_addGuest);
     on<DeleteGuest>(_deleteGuest);

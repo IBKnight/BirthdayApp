@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
     return SizedBox(
       height: 58.w,
       child: TextFormField(
+
         cursorColor: Palette.greenishBlack,
         textCapitalization: TextCapitalization.words,
         readOnly: isReadOnly,

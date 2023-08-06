@@ -1,6 +1,6 @@
 
 
-import 'package:birthday_app/feature/domain/entities/wish_list_entity.dart';
+import 'package:birthday_app/domain/entities/wish_list_entity.dart';
 
 abstract interface class WishListRepository{
   Future<void> addWish(WishEntity wish);

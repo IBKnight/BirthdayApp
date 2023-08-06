@@ -1,4 +1,7 @@
-import 'package:birthday_app/common/theme.dart';
+import 'package:birthday_app/common/palette.dart';
+import 'package:birthday_app/common/strings.dart';
+import 'package:birthday_app/presentation/widgets/appbanner.dart';
+import 'package:birthday_app/presentation/widgets/entertainments_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -8,11 +11,9 @@ import 'package:yandex_mapkit/yandex_mapkit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 
-import 'package:birthday_app/common/palette.dart';
-import 'package:birthday_app/common/strings.dart';
-import 'package:birthday_app/feature/presentation/widgets/appbanner.dart';
-import 'package:birthday_app/feature/presentation/widgets/entertainments_list.dart';
-import 'package:birthday_app/feature/presentation/widgets/menu_grid.dart';
+
+import 'package:birthday_app/common/theme.dart';
+import 'package:birthday_app/presentation/widgets/menu_grid.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

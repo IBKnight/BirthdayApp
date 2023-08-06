@@ -1,6 +1,9 @@
 import 'package:birthday_app/common/router/router.dart';
-import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
-import 'package:birthday_app/feature/bloc/wishlist_bloc/wishlist_bloc.dart';
+import 'package:birthday_app/bloc/guest_list_bloc/guest_list_bloc.dart';
+import 'package:birthday_app/bloc/wishlist_bloc/wishlist_bloc.dart';
+import 'package:birthday_app/data/repositories/guest_repo_impl.dart';
+import 'package:birthday_app/data/repositories/wish_list_repo_impl.dart';
+import 'package:birthday_app/domain/repositories/wish_list_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,10 +17,10 @@ class BirthdayApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GuestListBloc()..add(LoadGuestList()),
+          create: (context) => GuestListBloc(repository: GuestRepositoryImpl())..add(LoadGuestList()),
         ),
         BlocProvider(
-          create: (context) => WishListBloc()..add(LoadWishList()),
+          create: (context) => WishListBloc(repository: WishListRepositoryImpl())..add(LoadWishList()),
         ),
       ],
       child: ScreenUtilInit(

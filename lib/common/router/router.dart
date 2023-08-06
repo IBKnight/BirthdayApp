@@ -1,11 +1,11 @@
 
-import 'package:birthday_app/feature/domain/entities/card_entity.dart';
+import 'package:birthday_app/domain/entities/card_entity.dart';
+import 'package:birthday_app/presentation/pages/detail_page.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:birthday_app/feature/presentation/pages/detail_page.dart';
-import 'package:birthday_app/feature/presentation/pages/guest_list_page.dart';
-import 'package:birthday_app/feature/presentation/pages/home_page.dart';
-import 'package:birthday_app/feature/presentation/pages/wishlist_page.dart';
+import 'package:birthday_app/presentation/pages/guest_list_page.dart';
+import 'package:birthday_app/presentation/pages/home_page.dart';
+import 'package:birthday_app/presentation/pages/wishlist_page.dart';
 
 
 // final router = GoRouter(routes: $appRoutes);

@@ -1,4 +1,4 @@
-import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
+import 'package:birthday_app/domain/entities/guest_entity.dart';
 
 abstract interface class GuestRepository{
 

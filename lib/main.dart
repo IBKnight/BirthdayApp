@@ -1,5 +1,5 @@
 import 'package:birthday_app/data/models/guests/guest_model.dart';
-import 'package:birthday_app/feature/presentation/pages/birthday_app.dart';
+import 'package:birthday_app/presentation/pages/birthday_app.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';

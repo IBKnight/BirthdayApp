@@ -1,4 +1,4 @@
-class Validator {
+mixin class Validator {
   static String guestCountValid(int guestCount) {
     if ((guestCount == 1 || guestCount % 10 == 1) && guestCount % 100 != 11) {
       return "гость";

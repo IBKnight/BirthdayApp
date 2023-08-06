@@ -1,8 +1,9 @@
 import 'package:birthday_app/data/datasources/local/local_datasource.dart';
 import 'package:birthday_app/data/mappers/guest_data_mapper.dart';
 import 'package:birthday_app/data/models/guests/guest_model.dart';
-import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
-import 'package:birthday_app/feature/domain/repositories/guest_repository.dart';
+import 'package:birthday_app/domain/entities/guest_entity.dart';
+import 'package:birthday_app/domain/repositories/guest_repository.dart';
+
 
 class GuestRepositoryImpl implements GuestRepository{
 

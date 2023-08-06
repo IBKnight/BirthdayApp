@@ -1,13 +1,13 @@
+import 'package:birthday_app/bloc/guest_list_bloc/guest_list_bloc.dart';
+import 'package:birthday_app/common/palette.dart';
 import 'package:birthday_app/common/validator.dart';
-import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
-import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
-import 'package:birthday_app/feature/presentation/widgets/guest_list_bottom_sheet.dart';
+import 'package:birthday_app/domain/entities/guest_entity.dart';
+import 'package:birthday_app/presentation/widgets/guest_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:io';
 
-import 'package:birthday_app/common/palette.dart';
 import 'package:image_picker/image_picker.dart';
 
 class GuestListItem extends StatefulWidget {
@@ -52,7 +52,7 @@ class _GuestListItemState extends State<GuestListItem> {
                         widget.item.profession,
                         widget.item.recordingDate,
                         id: widget.item.id,
-                        pathToImage: pickedImage!),
+                        pathToImage: pickedImage),
                   ),
                 );
           },
@@ -161,6 +161,6 @@ class _GuestListItemState extends State<GuestListItem> {
     final picker = ImagePicker();
     XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
-    if (image != null) return image!.path;
+    if (image != null) return image.path;
   }
 }

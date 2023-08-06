@@ -1,4 +1,4 @@
-part of 'wishlist_bloc.dart';
+part of '../../../bloc/wishlist_bloc/wishlist_bloc.dart';
 
 @immutable
 sealed class WishListEvent {}
