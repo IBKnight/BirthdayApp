@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomBottomSheet extends StatelessWidget {
-  CustomBottomSheet({Key? key,
+class GuestListBottomSheet extends StatelessWidget {
+  GuestListBottomSheet({Key? key,
     required this.nameController,
     required this.lastnameController,
     required this.dateController,
@@ -130,6 +130,7 @@ class CustomBottomSheet extends StatelessWidget {
                             ),
                           ),
                         );
+                        Navigator.pop(context);
                       },
                       style:
                       AppTheme.lightTheme.textButtonTheme.style!.copyWith(

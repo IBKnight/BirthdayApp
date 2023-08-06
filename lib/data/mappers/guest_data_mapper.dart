@@ -1,4 +1,4 @@
-import 'package:birthday_app/data/models/guest_model.dart';
+import 'package:birthday_app/data/models/guests/guest_model.dart';
 import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
 
 class GuestDataMapper {

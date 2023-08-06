@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "118847854852",
+    "project_id": "wishlist-birth-app",
+    "storage_bucket": "wishlist-birth-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118847854852:android:9ad4fea271d6e085845851",
+        "android_client_info": {
+          "package_name": "com.example.birthday_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118847854852-7066pvn65v2pphq35jb5ica4avh5q0n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8luAdMUDx89x7NcpdhW5YnnslU1rgGHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118847854852-7066pvn65v2pphq35jb5ica4avh5q0n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

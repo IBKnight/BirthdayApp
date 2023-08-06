@@ -3,7 +3,7 @@ import 'package:birthday_app/common/strings.dart';
 import 'package:birthday_app/common/validator.dart';
 import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
 import 'package:birthday_app/feature/presentation/widgets/custom_appbar.dart';
-import 'package:birthday_app/feature/presentation/widgets/custom_bottom_sheet.dart';
+import 'package:birthday_app/feature/presentation/widgets/guest_list_bottom_sheet.dart';
 import 'package:birthday_app/feature/presentation/widgets/drop_down.dart';
 import 'package:birthday_app/feature/presentation/widgets/guest_list_item.dart';
 
@@ -80,7 +80,7 @@ class _GuestListPageState extends State<GuestListPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${state.guests.length} ${guestCountValid(state.guests.length)}",
+                              "${state.guests.length} ${Validator.guestCountValid(state.guests.length)}",
                               style: TextStyle(
                                   fontSize: 14.sp, color: Palette.grey, height: 20.23/14.w),
                             ),
@@ -116,7 +116,7 @@ class _GuestListPageState extends State<GuestListPage> {
                     padding: EdgeInsets.only(bottom: 47.h, right: 32.w),
                     child: Align(
                       alignment: Alignment.bottomRight,
-                      child: CustomBottomSheet(
+                      child: GuestListBottomSheet(
                         nameController: _nameController,
                         lastnameController: _lastnameController,
                         dateController: _dateController,

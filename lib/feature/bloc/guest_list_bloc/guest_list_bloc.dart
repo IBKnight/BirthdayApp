@@ -9,67 +9,78 @@ part 'guest_list_state.dart';
 
 class GuestListBloc extends Bloc<GuestListEvent, GuestListState> {
   GuestListBloc() : super(GuestListLoading()) {
-    on<LoadGuestList>((event, emit) async {
-      try {
-        await Future.delayed(const Duration(milliseconds: 1000));
+    on<LoadGuestList>(_loadGuestList);
+    on<AddGuest>(_addGuest);
+    on<DeleteGuest>(_deleteGuest);
+    on<UpdateGuest>(_updateGuest);
+    on<SortGuest>(_sortingGuest);
+  }
 
-        final repository = GuestRepositoryImpl();
-        final List<GuestEntity> guests = await repository.getGuests();
+  Future<void> _loadGuestList(
+      LoadGuestList event, Emitter<GuestListState> emit) async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 1000));
 
-        emit(GuestListLoaded(guests));
-      } catch (e) {
-        emit(GuestListError(e.toString()));
-      }
-    });
+      final repository = GuestRepositoryImpl();
+      final List<GuestEntity> guests = await repository.getGuests();
 
-    on<AddGuest>((event, emit) async {
-      try {
-        final repository = GuestRepositoryImpl();
+      emit(GuestListLoaded(guests));
+    } catch (e) {
+      emit(GuestListError(e.toString()));
+    }
+  }
 
-        await repository.addGuest(event.newGuest);
-        final List<GuestEntity> guests = await repository.getGuests();
-        emit(GuestListLoaded(guests));
-      } catch (e) {
-        emit(GuestListError(e.toString()));
-      }
-    });
+  Future<void> _addGuest(AddGuest event, Emitter<GuestListState> emit) async {
+    try {
+      final repository = GuestRepositoryImpl();
 
-    on<DeleteGuest>((event, emit) async {
-      try {
-        final repository = GuestRepositoryImpl();
+      await repository.addGuest(event.newGuest);
+      final List<GuestEntity> guests = await repository.getGuests();
+      emit(GuestListLoaded(guests));
+    } catch (e) {
+      emit(GuestListError(e.toString()));
+    }
+  }
 
-        await repository.deleteGuest(event.guest);
+  Future<void> _deleteGuest(
+      DeleteGuest event, Emitter<GuestListState> emit) async {
+    try {
+      final repository = GuestRepositoryImpl();
 
-        final List<GuestEntity> guests = await repository.getGuests();
-        emit(GuestListLoaded(guests));
-      } catch (e) {
-        emit(GuestListError(e.toString()));
-      }
-    });
+      await repository.deleteGuest(event.guest);
 
-    on<UpdateGuest>((event, emit) async {
-      try {
-        final repository = GuestRepositoryImpl();
+      final List<GuestEntity> guests = await repository.getGuests();
+      emit(GuestListLoaded(guests));
+    } catch (e) {
+      emit(GuestListError(e.toString()));
+    }
+  }
 
-        await repository.updateGuest(event.newGuest);
+  Future<void> _updateGuest(
+      UpdateGuest event, Emitter<GuestListState> emit) async {
+    try {
+      final repository = GuestRepositoryImpl();
 
-        final List<GuestEntity> guests = await repository.getGuests();
-        emit(GuestListLoaded(guests));
-      } catch (e) {
-        emit(GuestListError(e.toString()));
-      }
-    });
+      await repository.updateGuest(event.newGuest);
 
-    on<SortGuest>((event, emit) async {
-      try {
-        final repository = GuestRepositoryImpl();
+      final List<GuestEntity> guests = await repository.getGuests();
 
-        final List<GuestEntity> guests =
-            await repository.sortGuests(event.sortParam);
-        emit(GuestListLoaded(guests));
-      } catch (e) {
-        emit(GuestListError(e.toString()));
-      }
-    });
+      emit(GuestListLoaded(guests));
+    } catch (e) {
+      emit(GuestListError(e.toString()));
+    }
+  }
+
+  Future<void> _sortingGuest(
+      SortGuest event, Emitter<GuestListState> emit) async {
+    try {
+      final repository = GuestRepositoryImpl();
+
+      final List<GuestEntity> guests = await repository.sortGuests(event.sortParam);
+
+      emit(GuestListLoaded(guests));
+    } catch (e) {
+      emit(GuestListError(e.toString()));
+    }
   }
 }

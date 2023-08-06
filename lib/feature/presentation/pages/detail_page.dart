@@ -68,7 +68,7 @@ class DetailScreen extends StatelessWidget {
                 ),
                 GridView.builder(
                     shrinkWrap: true,
-                    itemCount: cardList.length,
+                    itemCount: item.ingredients.length,
                     scrollDirection: Axis.vertical,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, int index) {
@@ -97,7 +97,7 @@ class DetailScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Ингредиент',
+                                  item.ingredients[index],
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w500,

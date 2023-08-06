@@ -71,3 +71,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.yandex.android:maps.mobile:4.3.2-full'
 }
+
+apply plugin: 'com.google.gms.google-services'

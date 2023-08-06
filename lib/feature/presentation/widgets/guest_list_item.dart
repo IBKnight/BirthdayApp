@@ -1,7 +1,7 @@
 import 'package:birthday_app/common/validator.dart';
 import 'package:birthday_app/feature/bloc/guest_list_bloc/guest_list_bloc.dart';
 import 'package:birthday_app/feature/domain/entities/guest_entity.dart';
-import 'package:birthday_app/feature/presentation/widgets/custom_bottom_sheet.dart';
+import 'package:birthday_app/feature/presentation/widgets/guest_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,19 +41,20 @@ class _GuestListItemState extends State<GuestListItem> {
       children: [
         GestureDetector(
           onTap: () async {
-            String? _pickedImage = await _pickImageFromGallery();
-
-            context.read<GuestListBloc>().add(UpdateGuest(
-                  GuestEntity(
-                      widget.item.name,
-                      widget.item.surname,
-                      widget.item.birthday,
-                      widget.item.phoneNumber,
-                      widget.item.profession,
-                      widget.item.recordingDate,
-                      id: widget.item.id,
-                      pathToImage: _pickedImage!),
-                ));
+            String? pickedImage = await _pickImageFromGallery();
+            context.read<GuestListBloc>().add(
+                  UpdateGuest(
+                    GuestEntity(
+                        widget.item.name,
+                        widget.item.surname,
+                        widget.item.birthday,
+                        widget.item.phoneNumber,
+                        widget.item.profession,
+                        widget.item.recordingDate,
+                        id: widget.item.id,
+                        pathToImage: pickedImage!),
+                  ),
+                );
           },
           child: CircleAvatar(
             minRadius: 21.r,
@@ -93,7 +94,9 @@ class _GuestListItemState extends State<GuestListItem> {
                 ),
               ),
               Text(
-                '${calculateAge(widget.item.birthday)} ${yearValid(calculateAge(widget.item.birthday))}',
+                calculateAge(widget.item.birthday) != 0
+                    ? '${calculateAge(widget.item.birthday)} ${Validator.yearValid(calculateAge(widget.item.birthday))}'
+                    : "Возраст не указан",
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
@@ -111,7 +114,7 @@ class _GuestListItemState extends State<GuestListItem> {
             ],
           ),
         ),
-        CustomBottomSheet(
+        GuestListBottomSheet(
           nameController: widget.nameController,
           lastnameController: widget.lastnameController,
           dateController: widget.dateController,
@@ -150,7 +153,7 @@ class _GuestListItemState extends State<GuestListItem> {
             currentDate.day < birthDate.day)) {
       age--;
     }
-
+    if (age < 0) return 0;
     return age;
   }
 

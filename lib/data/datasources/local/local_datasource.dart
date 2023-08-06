@@ -1,5 +1,5 @@
 import 'package:birthday_app/common/strings.dart';
-import 'package:birthday_app/data/models/guest_model.dart';
+import 'package:birthday_app/data/models/guests/guest_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class LocalDataSource {

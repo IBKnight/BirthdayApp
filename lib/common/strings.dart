@@ -23,5 +23,6 @@ abstract class Strings{
   static const String byLastname = "По фамилии";
   static const String byDate = "По дате записи";
   static const String byAge = "По возрасту";
+  static const String url = "Ссылка";
 
 }
