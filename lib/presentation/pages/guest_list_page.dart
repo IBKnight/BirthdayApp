@@ -11,17 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// class GuestListProv extends StatelessWidget {
-//   const GuestListProv({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocProvider<GuestListBloc>(
-//       create: (context) => GuestListBloc()..add(LoadGuestList()),
-//       child: GuestListPage(),
-//     );
-//   }
-// }
 
 class GuestListPage extends StatefulWidget {
   const GuestListPage({Key? key}) : super(key: key);
@@ -31,7 +20,6 @@ class GuestListPage extends StatefulWidget {
 }
 
 class _GuestListPageState extends State<GuestListPage> {
-
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _lastnameController = TextEditingController();
@@ -82,7 +70,9 @@ class _GuestListPageState extends State<GuestListPage> {
                             Text(
                               "${state.guests.length} ${Validator.guestCountValid(state.guests.length)}",
                               style: TextStyle(
-                                  fontSize: 14.sp, color: Palette.grey, height: 20.23/14.w),
+                                  fontSize: 14.sp,
+                                  color: Palette.grey,
+                                  height: 20.23 / 14.w),
                             ),
                             const DropDownList(),
                           ],
@@ -140,9 +130,7 @@ class _GuestListPageState extends State<GuestListPage> {
                 ],
               ),
             GuestListError _ => Center(
-                child: Text(
-                  state.message.toString(),
-                ),
+                child: Text(state.message.toString()),
               )
           };
         },

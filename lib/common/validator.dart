@@ -73,7 +73,8 @@ mixin class Validator {
       return 'Пожалуйста, введите URL';
     }
 
-    RegExp urlRegExp = RegExp(r'^(http|https)://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$');
+    RegExp urlRegExp =
+        RegExp(r'^(http|https)://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$');
     if (!urlRegExp.hasMatch(value)) {
       return 'Введите корректный URL';
     }

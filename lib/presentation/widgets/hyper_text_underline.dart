@@ -13,10 +13,9 @@ class HyperTextUnderline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          launchUrl(
-            Uri.parse(url),
-          ),
+      onTap: () => launchUrl(
+        Uri.parse(url),
+      ),
       child: RichText(
         text: TextSpan(
           text: Strings.url,
@@ -27,7 +26,5 @@ class HyperTextUnderline extends StatelessWidget {
         ),
       ),
     );
-
   }
 }
-

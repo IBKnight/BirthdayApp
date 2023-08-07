@@ -1,4 +1,3 @@
-
 import 'package:birthday_app/domain/entities/card_entity.dart';
 import 'package:birthday_app/presentation/pages/detail_page.dart';
 import 'package:go_router/go_router.dart';
@@ -6,42 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:birthday_app/presentation/pages/guest_list_page.dart';
 import 'package:birthday_app/presentation/pages/home_page.dart';
 import 'package:birthday_app/presentation/pages/wishlist_page.dart';
-
-
-// final router = GoRouter(routes: $appRoutes);
-// @TypedGoRoute<HomeScreenRoute>(
-//     path: Routes.home,
-//     routes: [
-//       TypedGoRoute<DetailsScreenRoute>(
-//         path: Routes.details,
-//       ),
-//     ]
-// )
-//
-//
-// @immutable
-// final class HomeScreenRoute extends GoRouteData {
-//   @override
-//   Widget build(BuildContext context, state) {
-//     return const HomePage();
-//   }
-// }
-//
-// @immutable
-// final class DetailsScreenRoute extends GoRouteData {
-//
-//   DetailsScreenRoute({required this.$extra});
-//
-//   final CardEntity $extra;
-//
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) {
-//     //final CardEntity meal = state.extra as CardEntity;
-//     return DetailScreen(item: $extra);
-//   }
-// }
-//
-
 
 abstract class AppRouter {
   static GoRouter router = GoRouter(
@@ -59,7 +22,7 @@ abstract class AppRouter {
           ),
           GoRoute(
             path: 'wishlist',
-            builder: (context, state) => WishlistPage(),
+            builder: (context, state) => const WishlistPage(),
           ),
           GoRoute(
             path: 'guest_list',

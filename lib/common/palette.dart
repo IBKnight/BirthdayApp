@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class Palette{
+abstract class Palette {
   static const Color orange = Color(0xFFFDAC07);
   static const Color grey = Color(0xFF4E4343);
   static const Color lightGrey = Color(0xFFC0C0CA);

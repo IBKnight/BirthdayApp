@@ -6,8 +6,7 @@ class RemoteDataSource {
     try {
       final firestoreInstance = FirebaseFirestore.instance;
 
-      CollectionReference collectionRef =
-          firestoreInstance.collection('wishlist');
+      CollectionReference collectionRef = firestoreInstance.collection('wishlist');
 
       await collectionRef.add(wishListModel.toJson());
     } catch (e) {
@@ -19,8 +18,7 @@ class RemoteDataSource {
     try {
       final firestoreInstance = FirebaseFirestore.instance;
 
-      CollectionReference collectionRef =
-          firestoreInstance.collection('wishlist');
+      CollectionReference collectionRef = firestoreInstance.collection('wishlist');
       DocumentReference docRef = collectionRef.doc(newWish.id);
 
       await docRef.update(newWish.toJson());
@@ -61,12 +59,10 @@ class RemoteDataSource {
     }
   }
 
-
   static Future<void> deleteData(String docId) async {
     try {
       final firestoreInstance = FirebaseFirestore.instance;
 
-      
       CollectionReference collectionRef = firestoreInstance.collection('wishlist');
       DocumentReference docRef = collectionRef.doc(docId);
 
@@ -77,5 +73,4 @@ class RemoteDataSource {
       print('Ошибка при удалении данных из Firestore: $e');
     }
   }
-
-  }
+}

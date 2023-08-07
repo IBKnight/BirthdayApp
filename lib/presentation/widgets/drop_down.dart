@@ -29,11 +29,8 @@ class _DropDownListState extends State<DropDownList> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-      icon: Icon(
-        Icons.arrow_drop_down,
-        size: 30.w,
-      ),
-      hint: const Text("Сортировать:"),
+      icon: Icon(Icons.arrow_drop_down, size: 30.w),
+      hint: const Text(Strings.sortBy),
       value: _dropdownValue,
       style: TextStyle(color: Palette.greenishBlack, fontSize: 14.sp),
       underline: Container(
@@ -50,7 +47,7 @@ class _DropDownListState extends State<DropDownList> {
         setState(
           () {
             _dropdownValue = value!;
-            context.read<GuestListBloc>().add(SortGuest(value!));
+            context.read<GuestListBloc>().add(SortGuest(value));
           },
         );
       },

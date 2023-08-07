@@ -3,7 +3,6 @@ import 'package:birthday_app/domain/entities/entertainments_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class EntertainmentsItem extends StatelessWidget {
   const EntertainmentsItem({Key? key, required this.item}) : super(key: key);
 
@@ -27,9 +26,7 @@ class EntertainmentsItem extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          width: 12.w,
-        ),
+        SizedBox(width: 12.w),
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -54,11 +51,7 @@ class EntertainmentsItem extends StatelessWidget {
             ],
           ),
         ),
-        Icon(
-          Icons.chevron_right,
-          size: 20.w,
-          color: Palette.grey,
-        ),
+        Icon(Icons.chevron_right, size: 20.w, color: Palette.grey),
       ],
     );
   }

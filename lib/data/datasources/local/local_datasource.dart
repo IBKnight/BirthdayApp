@@ -32,9 +32,10 @@ class LocalDataSource {
 
     Map<String, List<GuestModel>> sortedLists = {
       Strings.byName: List.from(guests)
-        ..sort((a, b) => a.name.compareTo(b.name)),
+        ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase())),
       Strings.byLastname: List.from(guests)
-        ..sort((a, b) => a.surname.compareTo(b.surname)),
+        ..sort((a, b) =>
+            a.surname.toLowerCase().compareTo(b.surname.toLowerCase())),
       Strings.byDate: List.from(guests)
         ..sort((a, b) => a.recordingDate.compareTo(b.recordingDate)),
       Strings.byAge: List.from(guests)

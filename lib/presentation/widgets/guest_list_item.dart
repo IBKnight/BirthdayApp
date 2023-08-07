@@ -77,9 +77,7 @@ class _GuestListItemState extends State<GuestListItem> {
             ),
           ),
         ),
-        SizedBox(
-          width: 12.w,
-        ),
+        SizedBox(width: 12.w),
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -127,9 +125,7 @@ class _GuestListItemState extends State<GuestListItem> {
             color: Palette.grey,
           ),
         ),
-        SizedBox(
-          width: 20.w,
-        ),
+        SizedBox(width: 20.w),
         GestureDetector(
           child: Icon(
             Icons.delete_forever,

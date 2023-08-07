@@ -6,25 +6,21 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'wishlist_event.dart';
+
 part 'wishlist_state.dart';
 
 class WishListBloc extends Bloc<WishListEvent, WishListState> {
-
   final WishListRepository repository;
 
   WishListBloc({required this.repository}) : super(WishListLoading()) {
-
-    on<LoadWishList> (_loadWishList);
-    on<AddWish> (_addNewWish);
-    on<UpdateWish> (_updateWish);
-    on<DeleteWish> (_deleteWish);
-
+    on<LoadWishList>(_loadWishList);
+    on<AddWish>(_addNewWish);
+    on<UpdateWish>(_updateWish);
+    on<DeleteWish>(_deleteWish);
   }
 
-  Future<void> _loadWishList (LoadWishList event, Emitter<WishListState> emit) async{
+  Future<void> _loadWishList(LoadWishList event, Emitter<WishListState> emit) async {
     try {
-      await Future.delayed(const Duration(milliseconds: 1000));
-
       final List<WishEntity> wishes = await repository.getWishes();
 
       emit(WishListLoaded(wishes));
@@ -33,7 +29,7 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
     }
   }
 
-  Future<void> _addNewWish (AddWish event, Emitter<WishListState> emit) async{
+  Future<void> _addNewWish(AddWish event, Emitter<WishListState> emit) async {
     try {
       await repository.addWish(event.newWish);
 
@@ -45,7 +41,7 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
     }
   }
 
-  Future<void> _updateWish (UpdateWish event, Emitter<WishListState> emit) async{
+  Future<void> _updateWish(UpdateWish event, Emitter<WishListState> emit) async {
     try {
       await repository.updateWish(event.newWish);
 
@@ -55,10 +51,9 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
     } catch (e) {
       emit(WishListError(e.toString()));
     }
-
   }
 
-  Future<void> _deleteWish (DeleteWish event, Emitter<WishListState> emit) async{
+  Future<void> _deleteWish(DeleteWish event, Emitter<WishListState> emit) async {
     try {
       await repository.deleteWish(event.id);
 
@@ -68,8 +63,5 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
     } catch (e) {
       emit(WishListError(e.toString()));
     }
-
   }
-
-
 }

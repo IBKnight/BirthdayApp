@@ -45,10 +45,12 @@ class _MenuGridState extends State<MenuGrid> {
         // ),
         GestureDetector(
           onTap: () {
-            setState(() {
-              _isExpanded = !_isExpanded;
-              _foldText = (_isExpanded) ? Strings.expand : Strings.collapse;
-            });
+            setState(
+              () {
+                _isExpanded = !_isExpanded;
+                _foldText = (_isExpanded) ? Strings.expand : Strings.collapse;
+              },
+            );
           },
           child: RichText(
             text: TextSpan(
@@ -57,7 +59,7 @@ class _MenuGridState extends State<MenuGrid> {
                   decoration: TextDecoration.underline,
                   color: Palette.greenishBlack,
                   fontSize: 14.sp,
-              height: 20.h/14.sp),
+                  height: 20.h / 14.sp),
             ),
           ),
         ),

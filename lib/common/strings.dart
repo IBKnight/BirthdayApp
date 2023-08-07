@@ -1,4 +1,4 @@
-abstract class Strings{
+abstract class Strings {
   static const String menuTitle = "Меню";
   static const String entertainmentTitle = "Развлечения";
   static const String locationTitle = "Место";
@@ -24,5 +24,5 @@ abstract class Strings{
   static const String byDate = "По дате записи";
   static const String byAge = "По возрасту";
   static const String url = "Ссылка";
-
+  static const String sortBy = "Сортировать:";
 }

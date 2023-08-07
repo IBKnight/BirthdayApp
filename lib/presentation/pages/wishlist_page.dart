@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class WishlistPage extends StatefulWidget {
   const WishlistPage({Key? key}) : super(key: key);
 
@@ -106,11 +105,13 @@ class _WishlistPageState extends State<WishlistPage> {
                                         SizedBox(height: 50.h),
                                         TextButton(
                                           onPressed: () {
-                                            context.read<WishListBloc>().add(AddWish(WishEntity(
-                                              title: _titleController.text,
-                                              url: _urlController.text,
-                                              isPicked: false,
-                                            )));
+                                            context
+                                                .read<WishListBloc>()
+                                                .add(AddWish(WishEntity(
+                                                  title: _titleController.text,
+                                                  url: _urlController.text,
+                                                  isPicked: false,
+                                                )));
                                             Navigator.pop(context);
                                             _titleController.text = '';
                                             _urlController.text = '';
@@ -154,9 +155,7 @@ class _WishlistPageState extends State<WishlistPage> {
                 ],
               ),
             WishListError _ => Center(
-                child: Text(
-                  state.message.toString(),
-                ),
+                child: Text(state.message.toString()),
               )
           };
         },

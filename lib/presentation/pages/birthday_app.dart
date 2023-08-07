@@ -3,7 +3,6 @@ import 'package:birthday_app/bloc/guest_list_bloc/guest_list_bloc.dart';
 import 'package:birthday_app/bloc/wishlist_bloc/wishlist_bloc.dart';
 import 'package:birthday_app/data/repositories/guest_repo_impl.dart';
 import 'package:birthday_app/data/repositories/wish_list_repo_impl.dart';
-import 'package:birthday_app/domain/repositories/wish_list_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

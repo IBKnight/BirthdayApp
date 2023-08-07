@@ -11,7 +11,6 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.isReadOnly = false,
     this.isNumbered = false,
-
   }) : super(key: key);
 
   final TextEditingController textEditingController;
@@ -20,20 +19,17 @@ class CustomTextField extends StatelessWidget {
   bool isReadOnly;
   bool isNumbered;
 
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 58.w,
       child: TextFormField(
-
         cursorColor: Palette.greenishBlack,
         textCapitalization: TextCapitalization.words,
         readOnly: isReadOnly,
         style: TextStyle(fontSize: 16.sp),
-        inputFormatters: isNumbered
-            ? [FilteringTextInputFormatter.digitsOnly]
-            : [],
+        inputFormatters:
+            isNumbered ? [FilteringTextInputFormatter.digitsOnly] : [],
         controller: textEditingController,
         decoration: InputDecoration(
           labelStyle: TextStyle(fontSize: 16.sp, color: Palette.greenishBlack),

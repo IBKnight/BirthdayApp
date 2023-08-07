@@ -11,7 +11,6 @@ import 'package:yandex_mapkit/yandex_mapkit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 
-
 import 'package:birthday_app/common/theme.dart';
 import 'package:birthday_app/presentation/widgets/menu_grid.dart';
 
@@ -29,9 +28,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const AppBanner(),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 16.h),
               Padding(
                 padding: EdgeInsets.only(left: 16.w, right: 28.w),
                 child: Text(
@@ -42,9 +39,7 @@ class HomePage extends StatelessWidget {
                       color: Palette.greenishBlack),
                 ),
               ),
-              SizedBox(
-                height: 15.h,
-              ),
+              SizedBox(height: 15.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Row(
@@ -60,9 +55,7 @@ class HomePage extends StatelessWidget {
                             color: Colors.white),
                       ),
                     ),
-                    SizedBox(
-                      width: 31.w,
-                    ),
+                    SizedBox(width: 31.w),
                     TextButton(
                       onPressed: () => context.push('/wishlist'),
                       style: AppTheme.lightTheme.textButtonTheme.style,
@@ -77,93 +70,79 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 30.h,
-              ),
+              SizedBox(height: 30.h),
               Text(
                 Strings.menuTitle,
-                style: GoogleFonts.yesevaOne(
-                    fontSize: 24.sp, color: Colors.black),
+                style:
+                    GoogleFonts.yesevaOne(fontSize: 24.sp, color: Colors.black),
               ),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 16.h),
               const MenuGrid(),
-              SizedBox(
-                height: 30.h,
-              ),
+              SizedBox(height: 30.h),
               Text(
                 Strings.entertainmentTitle,
-                style: GoogleFonts.yesevaOne(
-                    fontSize: 24.sp, color: Colors.black),
+                style:
+                    GoogleFonts.yesevaOne(fontSize: 24.sp, color: Colors.black),
               ),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 16.h),
               const EntertainmentsList(),
-              SizedBox(
-                height: 30.h,
-              ),
+              SizedBox(height: 30.h),
               Text(
                 Strings.locationTitle,
-                style: GoogleFonts.yesevaOne(
-                    fontSize: 24.sp, color: Colors.black),
+                style:
+                    GoogleFonts.yesevaOne(fontSize: 24.sp, color: Colors.black),
               ),
-              SizedBox(
-                height: 16.h,
+              SizedBox(height: 16.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Placeholder(
+                  fallbackHeight: 246.w,
+                  child: YandexMap(
+                    gestureRecognizers: {
+                      Factory<OneSequenceGestureRecognizer>(
+                        () => EagerGestureRecognizer(),
+                      )
+                    },
+                    mapObjects: [
+                      PlacemarkMapObject(
+                        mapId: const MapObjectId("Контер страйк"),
+                        point: const Point(
+                          latitude: 47.242613,
+                          longitude: 38.691239,
+                        ),
+                        text: const PlacemarkText(
+                            text: "Контра сити", style: PlacemarkTextStyle()),
+                        icon: PlacemarkIcon.single(
+                          PlacemarkIconStyle(
+                            scale: MediaQuery.of(context).size.shortestSide *
+                                0.0018,
+                            zIndex: 1,
+                            image: BitmapDescriptor.fromAssetImage(
+                              "assets/route_end.png",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                    onMapCreated: (YandexMapController controller) {
+                      controller.moveCamera(
+                        animation: const MapAnimation(
+                            type: MapAnimationType.linear, duration: 1),
+                        CameraUpdate.newCameraPosition(
+                          const CameraPosition(
+                            target: Point(
+                              latitude: 47.242613,
+                              longitude: 38.691239,
+                            ),
+                            zoom: 11,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(horizontal: 16.w),
-              //   child: Placeholder(
-              //     fallbackHeight: 246.w,
-              //     child: YandexMap(
-              //       gestureRecognizers: {
-              //         Factory<OneSequenceGestureRecognizer>(
-              //           () => EagerGestureRecognizer(),
-              //         )
-              //       },
-              //       mapObjects: [
-              //         PlacemarkMapObject(
-              //           mapId: const MapObjectId("Контер страйк"),
-              //           point: const Point(
-              //             latitude: 47.242613,
-              //             longitude: 38.691239,
-              //           ),
-              //           text: const PlacemarkText(
-              //               text: "Контра сити", style: PlacemarkTextStyle()),
-              //           icon: PlacemarkIcon.single(
-              //             PlacemarkIconStyle(
-              //               scale: MediaQuery.of(context).size.shortestSide *
-              //                   0.0018,
-              //               zIndex: 1,
-              //               image: BitmapDescriptor.fromAssetImage(
-              //                 "assets/route_end.png",
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ],
-              //       onMapCreated: (YandexMapController controller) {
-              //         controller.moveCamera(
-              //           animation: const MapAnimation(
-              //               type: MapAnimationType.linear, duration: 1),
-              //           CameraUpdate.newCameraPosition(
-              //             const CameraPosition(
-              //               target: Point(
-              //                 latitude: 47.242613,
-              //                 longitude: 38.691239,
-              //               ),
-              //               zoom: 11,
-              //             ),
-              //           ),
-              //         );
-              //       },
-              //     ),
-              //   ),
-              // ),
-              SizedBox(
-                height: 4.h,
-              ),
+              SizedBox(height: 4.h),
               Text(
                 Strings.address,
                 style: TextStyle(
@@ -171,9 +150,7 @@ class HomePage extends StatelessWidget {
                   color: Palette.grey,
                 ),
               ),
-              SizedBox(
-                height: 10.h,
-              ),
+              SizedBox(height: 10.h),
               GestureDetector(
                 onTap: () => launchUrl(
                   Uri.parse("https://github.com/IBKnight"),
@@ -188,9 +165,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              )
+              SizedBox(height: 20.h)
             ],
           ),
         ),
